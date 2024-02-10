@@ -26,9 +26,11 @@ export const App = () => {
 
     if (doesExist) {
       alert(`${newContact.name} is already in contacts.`);
+      return;
     } else {
       setContacts(prevContacts => [...prevContacts, newContact]);
     }
+    Notify.success('The contact was created');
   };
 
   const handleFilteredContacts = event => {

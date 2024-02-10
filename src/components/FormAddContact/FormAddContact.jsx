@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const BtnStyled = styled.button`
   display: block;
@@ -27,7 +26,6 @@ export const FormAddContact = ({ onSubmit }) => {
     onSubmit({ name, number });
     setName('');
     setNumber('');
-    Notify.success('The contact was created');
   };
 
   return (
