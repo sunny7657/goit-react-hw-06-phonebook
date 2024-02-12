@@ -1,17 +1,13 @@
-import styled from 'styled-components';
-
-const BtnStyled = styled.button`
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 4px;
-`;
+import { BtnDeleteStyled } from 'components/Button/Button.styled';
+import { useDispatch } from 'react-redux';
 
 export const ContactItem = ({ contactName, contactNumber, onDelete }) => {
+  const dispatch = useDispatch();
+
   return (
     <li name="contact">
       {contactName}: {contactNumber}
-      <BtnStyled onClick={onDelete}>Delete</BtnStyled>
+      <BtnDeleteStyled onClick={onDelete}>Delete</BtnDeleteStyled>
     </li>
   );
 };

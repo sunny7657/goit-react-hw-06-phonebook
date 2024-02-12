@@ -1,12 +1,7 @@
+import { BtnStyled } from 'components/Button/Button.styled';
 import { useState } from 'react';
-import styled from 'styled-components';
-
-const BtnStyled = styled.button`
-  display: block;
-  margin-top: 20px;
-  font-size: 12px;
-  padding: 8px;
-`;
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/store';
 
 export const FormAddContact = ({ onSubmit }) => {
   const [name, setName] = useState('');
@@ -21,9 +16,12 @@ export const FormAddContact = ({ onSubmit }) => {
     }
   };
 
+  const dispatch = useDispatch();
+
   const handleFormSubmit = evt => {
     evt.preventDefault();
-    onSubmit({ name, number });
+    // onSubmit({ name, number });
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };

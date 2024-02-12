@@ -1,10 +1,10 @@
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useEffect, useState } from 'react';
-import { Section } from './Section/Section';
-import { FormAddContact } from './FormAddContact/FormAddContact';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
+import { Section } from './components/Section/Section';
+import { FormAddContact } from './components/FormAddContact/FormAddContact';
+import { Filter } from './components/Filter/Filter';
+import { ContactList } from './components/ContactList/ContactList';
 
 export const App = () => {
   const [contacts, setContacts] = useState(() => {
