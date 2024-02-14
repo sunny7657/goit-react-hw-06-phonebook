@@ -1,7 +1,5 @@
 import { BtnStyled } from 'components/Button/Button.styled';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/store';
 
 export const FormAddContact = ({ onSubmit }) => {
   const [name, setName] = useState('');
@@ -16,12 +14,9 @@ export const FormAddContact = ({ onSubmit }) => {
     }
   };
 
-  const dispatch = useDispatch();
-
   const handleFormSubmit = evt => {
     evt.preventDefault();
-    // onSubmit({ name, number });
-    dispatch(addContact({ name, number }));
+    onSubmit({ name, number });
     setName('');
     setNumber('');
   };

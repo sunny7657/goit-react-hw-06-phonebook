@@ -1,52 +1,49 @@
-import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { useEffect, useState } from 'react';
 import { Section } from './components/Section/Section';
 import { FormAddContact } from './components/FormAddContact/FormAddContact';
 import { Filter } from './components/Filter/Filter';
 import { ContactList } from './components/ContactList/ContactList';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilteredContacts } from './redux/filter/filter-selectors';
+import { setFilter } from './redux/filter/filter-actions';
+import { addContact, deleteContact } from './redux/contacts/contacts-actions';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() => {
-    const localData = localStorage.getItem('contacts');
-    return localData ? JSON.parse(localData) : [];
-  });
+  // const [contacts, setContacts] = useState(() => {
+  //   const localData = localStorage.getItem('contacts');
+  //   return localData ? JSON.parse(localData) : [];
+  // });
 
-  const [filter, setFilter] = useState('');
+  const contacts = useSelector(getFilteredContacts);
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
   const handleSubmit = data => {
-    const newContact = { ...data, id: nanoid() };
+    const newContact = { ...data };
     const doesExist = contacts.some(
       contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
 
     if (doesExist) {
-      alert(`${newContact.name} is already in contacts.`);
-      return;
-    } else {
-      setContacts(prevContacts => [...prevContacts, newContact]);
+      return alert(`${newContact.name} is already in contacts.`);
     }
+
+    dispatch(addContact(data));
     Notify.success('The contact was created');
   };
 
-  const handleFilteredContacts = event => {
-    setFilter(event.target.value);
-  };
-
-  const deleteContact = id => {
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== id)
-    );
+  const onDelete = id => {
+    dispatch(deleteContact(id));
     Notify.info('The contact was deleted');
   };
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const changeFilter = event => {
+    dispatch(setFilter(event.target.value));
+  };
 
   return (
     <div>
@@ -54,10 +51,10 @@ export const App = () => {
         <FormAddContact onSubmit={handleSubmit} />
       </Section>
       <Section title="Contacts">
+        <Filter onChange={changeFilter} />
         {contacts.length > 0 && (
           <>
-            <Filter onChange={handleFilteredContacts} />
-            <ContactList contacts={filteredContacts} onDelete={deleteContact} />
+            <ContactList contacts={contacts} onDelete={onDelete} />
           </>
         )}
       </Section>

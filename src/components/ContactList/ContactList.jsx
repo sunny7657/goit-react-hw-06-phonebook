@@ -9,7 +9,7 @@ export const ContactList = ({ contacts, onDelete }) => (
           contactName={name}
           contactNumber={number}
           key={id}
-          onDelete={() => onDelete(contact.id)}
+          onDelete={() => onDelete(id)}
         />
       );
     })}
