@@ -5,22 +5,13 @@ import { Filter } from './components/Filter/Filter';
 import { ContactList } from './components/ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilteredContacts } from './redux/filter/filter-selectors';
-import { setFilter } from './redux/filter/filter-actions';
-import { addContact, deleteContact } from './redux/contacts/contacts-actions';
+import { setFilter } from './redux/filter/filter-slice';
+import { addContact, deleteContact } from './redux/contacts/contacts-slice';
 
 export const App = () => {
-  // const [contacts, setContacts] = useState(() => {
-  //   const localData = localStorage.getItem('contacts');
-  //   return localData ? JSON.parse(localData) : [];
-  // });
-
   const contacts = useSelector(getFilteredContacts);
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
 
   const handleSubmit = data => {
     const newContact = { ...data };
