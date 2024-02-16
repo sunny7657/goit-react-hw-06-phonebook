@@ -1,9 +1,16 @@
 import { BtnStyled } from 'components/Button/Button.styled';
+import { Notify } from 'notiflix';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/contacts/contacts-slice';
+import { getAllContacts } from '../../redux/contacts/contacts-selectors';
 
-export const FormAddContact = ({ onSubmit }) => {
+export const FormAddContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const contacts = useSelector(getAllContacts);
+  const dispatch = useDispatch();
 
   const handleInputChange = evt => {
     const { value } = evt.target;
@@ -16,7 +23,17 @@ export const FormAddContact = ({ onSubmit }) => {
 
   const handleFormSubmit = evt => {
     evt.preventDefault();
-    onSubmit({ name, number });
+    const doesExist = contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+
+    if (doesExist) {
+      return alert(`${name} is already in contacts.`);
+    }
+
+    dispatch(addContact({ name, number }));
+    Notify.success('The contact was created');
+
     setName('');
     setNumber('');
   };
