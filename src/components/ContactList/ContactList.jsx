@@ -17,7 +17,6 @@ export const ContactList = () => {
       {filteredContacts.map(contact => (
         <ContactItem key={contact.id} contact={contact} />
       ))}
-      ;
     </ul>
   );
 };
