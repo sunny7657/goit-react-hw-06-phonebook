@@ -7,11 +7,10 @@ export const ContactList = () => {
   const contacts = useSelector(getAllContacts);
   const filter = useSelector(getFilter);
 
-  if (!filter) return contacts;
-
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
   return (
     <ul>
       {filteredContacts.map(contact => (
