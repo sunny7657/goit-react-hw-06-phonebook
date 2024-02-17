@@ -8,13 +8,15 @@ export const Filter = () => {
     dispatch(setFilter(event.target.value));
   };
 
-  <label>
-    Find contacts by name
-    <input
-      type="text"
-      name="filter"
-      placeholder="Find contact"
-      onChange={changeFilter}
-    ></input>
-  </label>;
+  return (
+    <label>
+      Find contacts by name
+      <input
+        type="text"
+        name="filter"
+        placeholder="Find contact"
+        onChange={changeFilter}
+      ></input>
+    </label>
+  );
 };
