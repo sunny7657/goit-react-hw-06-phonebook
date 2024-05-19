@@ -1,9 +1,5 @@
-import { useSelector } from 'react-redux';
-
-// import { ContactItem } from 'components/ContactItem/ContactItem';
-export const ContactList = () => {
-  const contacts = useSelector(store => store.contacts);
-  console.log(contacts);
+import { ContactItem } from 'components/ContactItem/ContactItem';
+export const ContactList = ({ contacts }) => {
   // const filter = useSelector(getFilter);
 
   // const filteredContacts = contacts.filter(contact =>
@@ -12,9 +8,9 @@ export const ContactList = () => {
 
   return (
     <ul>
-      {/* {filteredContacts.map(contact => (
+      {contacts.map(contact => (
         <ContactItem key={contact.id} contact={contact} />
-      ))} */}
+      ))}
     </ul>
   );
 };

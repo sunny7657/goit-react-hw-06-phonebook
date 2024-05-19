@@ -1,18 +1,6 @@
 import { devToolsEnhancer } from '@redux-devtools/extension';
 import { createStore } from 'redux';
-
-const initialState = {
-  contacts: [
-    {
-      id: '1',
-      title: 'hello',
-    },
-  ],
-};
-
-const reducer = (state = initialState) => {
-  return state;
-};
+import { reducer } from './reducer';
 
 const enhancer = devToolsEnhancer(); //підсилювач (additional settings)
 
