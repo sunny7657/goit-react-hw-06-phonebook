@@ -1,7 +1,15 @@
+import { ADD_CONTACT } from './constants';
+
 const initialState = {
   contacts: [],
 };
 
 export const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case ADD_CONTACT:
+      const { contacts } = state;
+      return { contacts: [...contacts, action.payload] };
+    default:
+      return state;
+  }
 };

@@ -1,6 +1,7 @@
 import { BtnStyled } from 'components/Button/Button.styled';
 import { Notify } from 'notiflix';
 import { useState } from 'react';
+
 export const FormAddContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
