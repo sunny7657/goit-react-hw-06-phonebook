@@ -10,26 +10,22 @@ const initialState = {
   filter: '',
 };
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, { type, payload }) => {
   const { contacts } = state;
-  switch (action.type) {
+  switch (type) {
     case ADD_CONTACT:
       return {
         ...state,
-        contacts: [...contacts, action.payload],
+        contacts: [...contacts, payload],
       };
     case DELETE_CONTACT:
-      const newContacts = contacts.filter(
-        contact => contact.id !== action.payload
-      );
+      const newContacts = contacts.filter(contact => contact.id !== payload);
       return {
         ...state,
         contacts: newContacts,
       };
     case UPDATE_CONTACT:
-      const updatedContact = contacts.find(
-        contact => contact.id === action.payload
-      );
+      const updatedContact = contacts.find(contact => contact.id === payload);
       updatedContact.name = 'updated';
       return {
         ...state,
@@ -38,7 +34,7 @@ export const reducer = (state = initialState, action) => {
     case SET_FILTER:
       return {
         ...state,
-        filter: action.payload,
+        filter: payload,
       };
     default:
       return state;

@@ -9,10 +9,9 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/react_redux_practice/">
         <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
-//basename="/react_redux_practice/"

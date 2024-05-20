@@ -4,8 +4,8 @@ import { setFilter } from '../../redux/actions';
 export const Filter = () => {
   const dispatch = useDispatch();
 
-  const changeFilter = event => {
-    dispatch(setFilter(event.target.value));
+  const changeFilter = ({ target }) => {
+    dispatch(setFilter(target.value));
   };
 
   return (
