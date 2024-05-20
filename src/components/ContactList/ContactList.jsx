@@ -1,6 +1,7 @@
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { useDispatch } from 'react-redux';
-import { deleteContact, updateContact } from '../../redux/actions';
+import { deleteContact } from '../../redux/actions';
+
 export const ContactList = ({ contacts }) => {
   // const filter = useSelector(getFilter);
 
@@ -16,8 +17,8 @@ export const ContactList = ({ contacts }) => {
 
   const onClickUpdate = id => {
     // const contact = contacts.find(item => item.id === id);
-
-    dispatch(updateContact(id));
+    console.log(id);
+    // dispatch(updateContact(id));
   };
 
   return (

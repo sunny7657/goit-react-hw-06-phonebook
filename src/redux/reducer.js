@@ -1,7 +1,13 @@
-import { ADD_CONTACT, DELETE_CONTACT, UPDATE_CONTACT } from './constants';
+import {
+  ADD_CONTACT,
+  DELETE_CONTACT,
+  SET_FILTER,
+  UPDATE_CONTACT,
+} from './constants';
 
 const initialState = {
   contacts: [],
+  filter: '',
 };
 
 export const reducer = (state = initialState, action) => {
@@ -20,6 +26,11 @@ export const reducer = (state = initialState, action) => {
       );
       updatedContact.name = 'updated';
       return { contacts: [...contacts, updatedContact] };
+    case SET_FILTER:
+      return {
+        contacts,
+        filter: action.payload,
+      };
     default:
       return state;
   }
