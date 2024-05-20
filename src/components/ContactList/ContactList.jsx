@@ -3,12 +3,6 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/actions';
 
 export const ContactList = ({ contacts }) => {
-  // const filter = useSelector(getFilter);
-
-  // const filteredContacts = contacts.filter(contact =>
-  //   contact.name.toLowerCase().includes(filter.toLowerCase())
-  // );
-
   const dispatch = useDispatch();
 
   const onClickDelete = id => {

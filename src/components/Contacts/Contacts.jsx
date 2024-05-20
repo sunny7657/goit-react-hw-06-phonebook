@@ -1,17 +1,16 @@
 import { ContactList } from 'components/ContactList/ContactList';
 // import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getAllContacts, getFilter } from '../../redux/selectors';
+import { getFilteredContacts } from '../../redux/selectors';
 import { Filter } from 'components/Filter/Filter';
 
 const Contacts = () => {
-  const contacts = useSelector(getAllContacts);
-  const filter = useSelector(getFilter);
+  const filteredContacts = useSelector(getFilteredContacts);
 
   return (
     <>
       <Filter />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={filteredContacts} />
     </>
   );
 };

@@ -11,4 +11,5 @@ export const getFilteredContacts = store => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+  return filteredContacts;
 };
