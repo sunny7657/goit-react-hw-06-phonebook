@@ -1,9 +1,6 @@
-import { devToolsEnhancer } from '@redux-devtools/extension';
-import { createStore } from 'redux';
 import { reducer } from './reducer';
+import { configureStore } from '@reduxjs/toolkit';
 
-const enhancer = devToolsEnhancer(); //підсилювач (additional settings)
-
-const store = createStore(reducer, enhancer);
+const store = configureStore({ reducer }); //configureStore automatically connects with redux dev tools - we don't need "const enhancer = devToolsEnhancer();" anymore
 
 export default store;
