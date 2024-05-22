@@ -1,27 +1,35 @@
-import { nanoid } from 'nanoid';
-const {
-  ADD_CONTACT,
-  DELETE_CONTACT,
-  UPDATE_CONTACT,
-  SET_FILTER,
-} = require('./constants');
+import { createAction } from '@reduxjs/toolkit';
 
-export const addContact = payload => {
+import { nanoid } from 'nanoid';
+const { UPDATE_CONTACT, SET_FILTER } = require('./constants');
+
+export const addContact = createAction('contacts/addContact', data => {
   return {
-    type: ADD_CONTACT,
     payload: {
       id: nanoid(),
-      ...payload,
+      ...data,
     },
   };
-};
+});
 
-export const deleteContact = payload => {
-  return {
-    type: DELETE_CONTACT,
-    payload,
-  };
-};
+// export const addContact = payload => {
+//   return {
+//     type: ADD_CONTACT,
+//     payload: {
+//       id: nanoid(),
+//       ...payload,
+//     },
+//   };
+// };
+
+export const deleteContact = createAction('contacts/deleteContact');
+
+// export const deleteContact = payload => {
+//   return {
+//     type: DELETE_CONTACT,
+//     payload,
+//   };
+// };
 
 export const updateContact = payload => {
   return {
