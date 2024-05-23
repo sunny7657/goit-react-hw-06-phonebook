@@ -1,8 +1,15 @@
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/actions';
+import {
+  deleteContact,
+  updateContact,
+} from '../../redux/contacts/contacts-slice';
+import { useState } from 'react';
+import UpdateModal from '../UpdateModal/UpdateModal';
 
 export const ContactList = ({ contacts }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [itemId, setItemId] = useState('');
   const dispatch = useDispatch();
 
   const onClickDelete = id => {
@@ -10,10 +17,13 @@ export const ContactList = ({ contacts }) => {
   };
 
   const onClickUpdate = id => {
-    // const contact = contacts.find(item => item.id === id);
-    console.log(id);
-    // dispatch(updateContact(id));
+    setItemId(id);
+    setIsOpenModal(true);
+
+    dispatch(updateContact(id));
   };
+
+  const setModalClose = () => setIsOpenModal(false);
 
   return (
     <ul>
@@ -26,6 +36,9 @@ export const ContactList = ({ contacts }) => {
             onClickUpdate={onClickUpdate}
           />
         ))}
+      {isOpenModal && (
+        <UpdateModal setModalClose={setModalClose} itemId={itemId} />
+      )}
     </ul>
   );
 };

@@ -2,7 +2,7 @@ import { BtnStyled } from 'components/Button/Button.styled';
 import { Notify } from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/actions';
+import { addContact } from '../../redux/contacts/contacts-slice';
 
 export const FormAddContact = () => {
   const [name, setName] = useState('');

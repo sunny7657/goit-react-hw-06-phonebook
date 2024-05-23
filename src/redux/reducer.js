@@ -1,19 +1,19 @@
-import { addContact } from './actions';
+// import { addContact } from './actions';
 // import { SET_FILTER, UPDATE_CONTACT } from './constants';
 
-import { createReducer } from '@reduxjs/toolkit';
+// import { createReducer } from '@reduxjs/toolkit';
 
-const initialState = {
-  contacts: [],
-  filter: '',
-};
+// const initialState = {
+//   contacts: [],
+//   filter: '',
+// };
 
-const reducer = createReducer(initialState, builder => {
-  builder.addCase(addContact, (state, { payload }) =>
-    state.contacts.push(payload)
-  );
-  // .addCase(deleteContact, (state, { payload }) => ({}));
-});
+// const reducer = createReducer(initialState, builder => {
+//   builder.addCase(addContact, (state, { payload }) =>
+//     state.contacts.push(payload)
+//   );
+// .addCase(deleteContact, (state, { payload }) => ({}));
+// });
 
 // export const reducer = (state = initialState, { type, payload }) => {
 //   const { contacts } = state;
@@ -45,4 +45,4 @@ const reducer = createReducer(initialState, builder => {
 //       return state;
 //   }
 // };
-export default reducer;
+// export default reducer;

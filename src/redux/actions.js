@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
 import { nanoid } from 'nanoid';
-const { UPDATE_CONTACT, SET_FILTER } = require('./constants');
+// const { UPDATE_CONTACT, SET_FILTER } = require('./constants');
 
 export const addContact = createAction('contacts/addContact', data => {
   return {
@@ -31,16 +31,16 @@ export const deleteContact = createAction('contacts/deleteContact');
 //   };
 // };
 
-export const updateContact = payload => {
-  return {
-    type: UPDATE_CONTACT,
-    payload,
-  };
-};
+// export const updateContact = payload => {
+//   return {
+//     type: UPDATE_CONTACT,
+//     payload,
+//   };
+// };
 
 export const setFilter = payload => {
   return {
-    type: SET_FILTER,
+    type: 'filter/setFilter',
     payload,
   };
 };
