@@ -1,16 +1,16 @@
-import { BtnDeleteStyled } from '../Button/Button.styled';
+import { BtnSmallStyled } from '../Button/Button.styled';
 
 export const ContactItem = ({ contact, onClickDelete, onClickUpdate }) => {
   const { id, name, number } = contact;
   return (
     <li name="contact">
       {name}: {number}
-      <BtnDeleteStyled type="button" onClick={() => onClickUpdate(id)}>
+      <BtnSmallStyled type="button" onClick={() => onClickUpdate(id)}>
         Update
-      </BtnDeleteStyled>
-      <BtnDeleteStyled type="button" onClick={() => onClickDelete(id)}>
+      </BtnSmallStyled>
+      <BtnSmallStyled type="button" onClick={() => onClickDelete(id)}>
         Delete
-      </BtnDeleteStyled>
+      </BtnSmallStyled>
     </li>
   );
 };

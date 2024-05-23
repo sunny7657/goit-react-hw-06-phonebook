@@ -2,6 +2,7 @@ import { BtnStyled } from 'components/Button/Button.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateContact } from '../../redux/contacts/contacts-slice';
+import StyledUpdateModal from './StyledUpdateModal';
 
 const UpdateModal = ({ setModalClose, itemId }) => {
   const [name, setName] = useState('');
@@ -29,7 +30,7 @@ const UpdateModal = ({ setModalClose, itemId }) => {
   };
 
   return (
-    <>
+    <StyledUpdateModal>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">
           <input
@@ -53,7 +54,7 @@ const UpdateModal = ({ setModalClose, itemId }) => {
           <BtnStyled type="submit">Change</BtnStyled>
         </label>
       </form>
-    </>
+    </StyledUpdateModal>
   );
 };
 

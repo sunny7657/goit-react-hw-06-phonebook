@@ -26,19 +26,21 @@ export const ContactList = ({ contacts }) => {
   const setModalClose = () => setIsOpenModal(false);
 
   return (
-    <ul>
-      {Boolean(contacts.length) &&
-        contacts.map(contact => (
-          <ContactItem
-            key={contact.id}
-            contact={contact}
-            onClickDelete={onClickDelete}
-            onClickUpdate={onClickUpdate}
-          />
-        ))}
-      {isOpenModal && (
-        <UpdateModal setModalClose={setModalClose} itemId={itemId} />
-      )}
-    </ul>
+    <>
+      <ul>
+        {Boolean(contacts.length) &&
+          contacts.map(contact => (
+            <ContactItem
+              key={contact.id}
+              contact={contact}
+              onClickDelete={onClickDelete}
+              onClickUpdate={onClickUpdate}
+            />
+          ))}
+      </ul>
+      {/* {isOpenModal && ( */}
+      <UpdateModal setModalClose={setModalClose} itemId={itemId} />
+      {/* )} */}
+    </>
   );
 };

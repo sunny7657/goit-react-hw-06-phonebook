@@ -7,7 +7,7 @@ export const BtnStyled = styled.button`
   padding: 8px;
 `;
 
-export const BtnDeleteStyled = styled.button`
+export const BtnSmallStyled = styled.button`
   display: inline-block;
   margin-left: 10px;
   font-size: 10px;
