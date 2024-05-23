@@ -5,7 +5,7 @@ const StyledModal = styled.div`
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: #5858f43e;
+  background-color: #607d8ba1;
   top: 0;
   left: 0;
 

@@ -28,7 +28,7 @@ const SectionStyled = styled.section`
     width: 400px;
     border-radius: 3px;
     border: 1px solid #7aa7c7;
-    background-color: #cde5f6;
+    background-color: #e3f6ff;
   }
 
   label {

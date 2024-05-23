@@ -1,4 +1,4 @@
-import { BtnStyled } from 'components/Button/Button.styled';
+import { BtnStyled } from '../Button/Button.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateContact } from '../../redux/contacts/contacts-slice';
@@ -33,21 +33,24 @@ const UpdateModal = ({ setModalClose, itemId }) => {
     <StyledUpdateModal>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">
+          Name
           <input
             id="username"
             type="text"
             name="name"
-            placeholder="Change your name"
+            placeholder="Adam Smith"
             value={name}
             onChange={onChange}
           />
         </label>
         <label htmlFor="userNumber">
+          Number
           <input
             id="userNumber"
             type="text"
             name="number"
-            placeholder="Change your number"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            placeholder="000-00-00"
             value={number}
             onChange={onChange}
           />
