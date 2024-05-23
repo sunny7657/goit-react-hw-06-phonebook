@@ -3,6 +3,8 @@ import styled from 'styled-components';
 const StyledModal = styled.div`
   position: absolute;
   z-index: 100;
+  width: 100%;
+  height: 100%;
   background-color: #5858f43e;
   top: 0;
   left: 0;
@@ -12,12 +14,8 @@ const StyledModal = styled.div`
   align-items: center;
 `;
 
-const StyledUpdateModal = () => {
-  return (
-    <>
-      <StyledModal />
-    </>
-  );
+const StyledUpdateModal = ({ children }) => {
+  return <StyledModal>{children}</StyledModal>;
 };
 
 export default StyledUpdateModal;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const SectionStyled = styled.section`
-  position: relative;
   display: flex;
   flex-direction: column;
   padding: 0 15px;
@@ -29,6 +28,7 @@ const SectionStyled = styled.section`
     width: 400px;
     border-radius: 3px;
     border: 1px solid #7aa7c7;
+    background-color: #cde5f6;
   }
 
   label {

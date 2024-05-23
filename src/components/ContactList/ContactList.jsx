@@ -38,9 +38,9 @@ export const ContactList = ({ contacts }) => {
             />
           ))}
       </ul>
-      {/* {isOpenModal && ( */}
-      <UpdateModal setModalClose={setModalClose} itemId={itemId} />
-      {/* )} */}
+      {isOpenModal && (
+        <UpdateModal setModalClose={setModalClose} itemId={itemId} />
+      )}
     </>
   );
 };
